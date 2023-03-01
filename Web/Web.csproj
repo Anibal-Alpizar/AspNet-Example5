@@ -216,6 +216,7 @@
     <Content Include="Views\Libro\Create.cshtml" />
     <Content Include="Views\Libro\Edit.cshtml" />
     <Content Include="Views\Libro\_PartialViewDetail.cshtml" />
+    <Content Include="Views\Libro\_PartialViewLibro.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

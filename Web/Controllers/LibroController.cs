@@ -57,6 +57,17 @@ namespace Web.Controllers
             }
         }
 
+        public PartialViewResult libroxAutor(int? id)
+        {
+            IEnumerable<Libro> lista = null;
+            IServiceLibro _ServiceLibro = new ServiceLibro();
+            if(id!= null)
+            {
+                lista = _ServiceLibro.GetLibroByAutor((int)id);
+            }
+            return PartialView("_PartialViewLibro", lista);
+        }
+
         // GET: Libro/Details/5
         public ActionResult Details(int? id)
         {

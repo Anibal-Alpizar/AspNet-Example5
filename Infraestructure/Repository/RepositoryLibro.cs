@@ -60,7 +60,7 @@ namespace Infraestructure.Repository
                     ctx.Configuration.LazyLoadingEnabled = false;
                     //Obtener libros por Autor
                     oLibro = ctx.Libro.
-                        Where(l => l.IdLibro == idAutor).
+                        Where(l => l.IdAutor == idAutor).
                         Include("Autor").ToList();
 
                 }
