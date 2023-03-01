@@ -44,6 +44,9 @@ namespace Web.Controllers
                 IServiceLibro _ServiceLibro = new ServiceLibro();
                 lista = _ServiceLibro.GetLibro();
 
+                // lista de autocompletado de autores
+                ViewBag.listaNombres = _ServiceLibro.GetLibroNombres();
+
 
                 return View(lista);
             }
