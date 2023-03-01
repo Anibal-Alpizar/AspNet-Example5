@@ -248,5 +248,19 @@ namespace Web.Controllers
             }
         }
 
+        public ActionResult librosxNombre(string filtro)
+        {
+            IEnumerable<Libro> lista = null;
+            IServiceLibro _serviceLibro = null;
+            if (string.IsNullOrEmpty(filtro))
+            {
+                lista = _serviceLibro.GetLibro();
+            } else
+            {
+                lista= _serviceLibro.GetLibroByNombre(filtro);
+            }
+            return PartialView("_PartialViewLibroAdmin", lista);
+        }
+
     }
 }

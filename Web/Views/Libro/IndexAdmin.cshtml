@@ -78,5 +78,21 @@
                 source : lista
             })
         })
+        $("#btnBuscar").click(function () {
+            var filtro = $("#filtro").val();
+            $.ajax({
+                method: 'POST',
+                url: '/Libro/LibrosxNombre',
+                data: { 'filtro': filtro },
+                success: function (response) {
+                    $('#resultado').html('');
+                    $('#resultado').html(response);
+
+
+                }, error: function (xhr, status, error) {
+                    console.log('Error' + error + ', No error' + xhr.status);
+                }
+                })
+        })
     </script>
 }
