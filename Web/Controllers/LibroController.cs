@@ -68,6 +68,16 @@ namespace Web.Controllers
             return PartialView("_PartialViewLibro", lista);
         }
 
+        public PartialViewResult getAll()
+        {
+            IEnumerable<Libro> lista = null;
+            IServiceLibro _ServiceLibro = new ServiceLibro();
+
+                lista = _ServiceLibro.GetLibro();
+         
+            return PartialView("_PartialViewLibroAll", lista);
+        }
+
         // GET: Libro/Details/5
         public ActionResult Details(int? id)
         {

@@ -6,8 +6,9 @@
 
 <h2>Listado de Libros</h2>
 <div class="row">
-    <div class="col-lg-3">
+    <div id="resultadoTodos" class="col-lg-3">
         <h1 class="my-4">Autor</h1>
+        <button onclick="getAll()">Todos</button>
         <div class="list-group">
             @foreach (var item in (List<Infraestructure.Models.Autor>)ViewBag.listaAutores)
             {
@@ -43,13 +44,26 @@
 </div>
 
 @section Scripts{
-
     <script type="text/javascript">
         function getAutor(idAutor) {
             $.ajax({
                 method: 'GET',
                 url: '/Libro/libroxAutor',
                 data: { 'id': idAutor },
+                success: function (response) {
+                    $('#resultado').html('');
+                    $('#resultado').html(response);
+                }, error: function (xhr, status, error) {
+                    console.log('Error ' + error, "No error " + xhr.status);
+                }
+            })
+        }
+
+        function getAll() {
+            $.ajax({
+                method: 'GET',
+                url: '/Libro/index',
+                //data: { 'id': idAutor },
                 success: function (response) {
                     $('#resultado').html('');
                     $('#resultado').html(response);

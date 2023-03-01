@@ -1,0 +1,12 @@
+﻿<div id="resultadoTodos" class="col-lg-3">
+    <h1 class="my-4">Autor</h1>
+    <button onclick="getAll()">Todos</button>
+    <div class="list-group">
+        @foreach (var item in (List<Infraestructure.Models.Autor>)ViewBag.listaAutores)
+        {
+            <button class="list-group-item" onclick="getAutor(@item.IdAutor)">
+                @item.Nombre
+            </button>
+        }
+    </div>
+</div>
